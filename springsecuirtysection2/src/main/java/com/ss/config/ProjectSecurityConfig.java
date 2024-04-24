@@ -13,14 +13,12 @@ import static org.springframework.security.config.Customizer.withDefaults;
 public class ProjectSecurityConfig {
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-        /*
-        Below is the custom security configuration.
-         */
-        /*
-        http.authorizeHttpRequests((requests) -> requests.anyRequest().authenticated());
-        http.formLogin(withDefaults());
-        http.httpBasic(withDefaults());
+        http.authorizeHttpRequests((requests) -> requests
+                .requestMatchers("/myAccount", "myBalance", "/myLoans", "myCards").authenticated()
+                .requestMatchers("/notices", "/contact").permitAll())
+                .formLogin(withDefaults())
+                .httpBasic(withDefaults());
         return http.build();
-         */
+
     }
 }
