@@ -63,10 +63,10 @@ public class ProjectSecurityConfig {
         return new InMemoryUserDetailsManager(admin, user);
 
     }*/
-    @Bean
+/*    @Bean
     public UserDetailsService userDetailsService(DataSource dataSource){
         return new JdbcUserDetailsManager(dataSource);
-    }
+    }*/
     @Bean
     public PasswordEncoder passwordEncoder(){
         return NoOpPasswordEncoder.getInstance();
